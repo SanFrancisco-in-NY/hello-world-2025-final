@@ -79,12 +79,11 @@ body, button, input {
 /* Find Nearest 버튼 - Glassmorphic */
 /* ==================== */
 .action-buttons {
-  position: absolute;
-  bottom: 100px;
+  position: fixed; /* absolute → fixed */
+  bottom: max(120px, calc(100px + env(safe-area-inset-bottom))); /* 훨씬 위로 */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  /* 페이드 애니메이션 */
   animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -212,15 +211,15 @@ body, button, input {
 }*/
 
 /* ==================== */
-/* 바텀시트 - Glassmorphic (투명 유지 + 모바일 최적화) */
+/* 바텀시트 - Glassmorphic (모바일 완전 최적화) */
 /* ==================== */
 .bathroom-sheet {
-  position: fixed; /* absolute → fixed */
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   
-  /* 반투명 배경 - 원래대로 투명 */
+  /* 반투명 배경 */
   background: rgba(255, 255, 255, 0) !important;
   
   /* 블러 효과 */
@@ -229,11 +228,12 @@ body, button, input {
   
   border-radius: 28px 28px 0 0;
   
-  /* 넉넉한 padding - 버튼이 잘리지 않게 */
-  padding: 20px 20px 60px 20px;
+  /* Safe Area 완전 대응 - 아래 여백 크게 */
+  padding: 20px;
+  padding-bottom: max(80px, calc(60px + env(safe-area-inset-bottom)));
   
-  /* 최소 높이로 위로 올리기 */
-  min-height: 200px;
+  /* 최소 높이로 더 위로 올리기 */
+  min-height: 240px;
   
   /* 그림자 */
   box-shadow: 
@@ -589,6 +589,10 @@ body, button, input {
     inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
   overflow: hidden !important;
   padding: 0 !important;
+
+    /* 하단 여백 추가 */
+    padding-bottom: max(60px, calc(40px + env(safe-area-inset-bottom))) !important;
+
 }
 
 /* 상단 요약(1min 0.36km) – 헤더 */
@@ -610,6 +614,7 @@ body, button, input {
 .mapboxgl-ctrl-directions .mapbox-directions-instructions {
   background: transparent !important;
   padding: 18px 16px 20px !important;
+  padding-bottom: max(80px, calc(60px + env(safe-area-inset-bottom))) !important;
   max-height: 460px !important;
   overflow-y: auto !important;
 }
