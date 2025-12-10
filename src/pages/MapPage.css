@@ -212,15 +212,15 @@ body, button, input {
 }*/
 
 /* ==================== */
-/* 바텀시트 - Glassmorphic (모바일 대응) */
+/* 바텀시트 - Glassmorphic (투명 유지 + 모바일 최적화) */
 /* ==================== */
 .bathroom-sheet {
-  position: absolute;
+  position: fixed; /* absolute → fixed */
   bottom: 0;
   left: 0;
   right: 0;
   
-  /* 반투명 배경 */
+  /* 반투명 배경 - 원래대로 투명 */
   background: rgba(255, 255, 255, 0) !important;
   
   /* 블러 효과 */
@@ -229,11 +229,11 @@ body, button, input {
   
   border-radius: 28px 28px 0 0;
   
-  /* Safe Area 대응 padding */
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: max(30px, env(safe-area-inset-bottom, 30px));
+  /* 넉넉한 padding - 버튼이 잘리지 않게 */
+  padding: 20px 20px 60px 20px;
+  
+  /* 최소 높이로 위로 올리기 */
+  min-height: 200px;
   
   /* 그림자 */
   box-shadow: 
