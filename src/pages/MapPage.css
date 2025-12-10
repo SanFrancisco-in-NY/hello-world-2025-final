@@ -212,7 +212,7 @@ body, button, input {
 }*/
 
 /* ==================== */
-/* 바텀시트 - Glassmorphic (완전 수정) */
+/* 바텀시트 - Glassmorphic (모바일 대응) */
 /* ==================== */
 .bathroom-sheet {
   position: absolute;
@@ -229,8 +229,11 @@ body, button, input {
   
   border-radius: 28px 28px 0 0;
   
-  /* iOS Safe Area 대응 */
-  padding: 20px 20px calc(20px + env(safe-area-inset-bottom)) 20px;
+  /* Safe Area 대응 padding */
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: max(30px, env(safe-area-inset-bottom, 30px));
   
   /* 그림자 */
   box-shadow: 
