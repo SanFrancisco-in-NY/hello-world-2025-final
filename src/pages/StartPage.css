@@ -1,0 +1,85 @@
+/* ==================== */
+/* Starting Page - 배경 버전 (최고 추천!) */
+/* ==================== */
+.start-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0A1F44;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ✅ 배경 애니메이션 */
+  .animation-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/starting-animation.gif');
+    background-size: cover; /* 화면 가득 */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  
+  /* Tap 힌트 */
+  .tap-hint {
+    position: relative;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: pulse 2s ease-in-out infinite;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 60vh; /* 아래쪽 배치 */
+  }
+  
+  @keyframes pulse {
+    0%, 100% { 
+      opacity: 0.6;
+      transform: translateY(0);
+    }
+    50% { 
+      opacity: 1;
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* 페이드 아웃 */
+  .start-page.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  /* ==================== */
+  /* 반응형 */
+  /* ==================== */
+  @media (max-width: 480px) {
+    .tap-hint {
+      font-size: 14px;
+      margin-top: 70vh;
+    }
+  }
+  
+  @media (max-height: 667px) {
+    .tap-hint {
+      font-size: 13px;
+      margin-top: 65vh;
+    }
+  }
+  
+  @media (orientation: landscape) {
+    .tap-hint {
+      margin-top: 50vh;
+    }
+  }
